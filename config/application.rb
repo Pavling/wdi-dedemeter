@@ -60,3 +60,11 @@ module DemeteredUp
     config.assets.version = '1.0'
   end
 end
+
+require File.join(Rails.root, 'lib', 'auto_demeter')
+ActiveRecord::Base.send :include, AutoDemeter
+ActiveRecord::Associations::BelongsToAssociation.send :include, AutoDemeter
+ActiveRecord::Associations::HasOneAssociation.send :include, AutoDemeter
+
+
+
