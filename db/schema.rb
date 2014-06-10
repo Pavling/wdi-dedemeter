@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813100827) do
+ActiveRecord::Schema.define(:version => 20140610124752) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "line3"
+    t.string   "town"
+    t.string   "county"
+    t.string   "post_code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "addresses", ["user_id"], :name => "index_addresses_on_user_id"
 
   create_table "invoices", :force => true do |t|
     t.string   "number"
@@ -25,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20130813100827) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "address"
     t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

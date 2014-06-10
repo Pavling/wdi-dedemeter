@@ -1,9 +1,14 @@
 User.destroy_all
 Invoice.destroy_all
 
-fred = User.create! name: 'fred', address: 'bedrock', phone: '0987654321'
-batman = User.create! name: 'bruce', address: 'wayne manor', phone: '911'
-river = User.create! name: 'river', address: 'serenity', phone: 'miranda'
+fred = User.create! name: 'fred', phone: '0987654321'
+fred.create_address(line1: '301 Cobblestone Way', town: 'bedrock')
+
+batman = User.create! name: 'bruce', phone: '911'
+batman.create_address(line1: 'wayne manor', town: 'gotham')
+
+river = User.create! name: 'river', phone: 'miranda'
+river.create_address(line1: 'cargo deck', line2: 'serenity')
 
 
 fred.invoices.create! number: 1, price: 12.33

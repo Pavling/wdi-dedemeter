@@ -17,7 +17,7 @@
 
 <p>
   <b>Address:</b>
-  <%= @invoice.user.address %>
+  <%= @invoice.user.address.full_address.join(', ') %>
 </p>
 
 <p>
